@@ -14,10 +14,8 @@ router.post("/register", async (req, res) => {
             password: hashedPassword,
         });
         const savedUser = await user.save();
-        console.log("New user saved successfully");
         res.json(savedUser);
     } catch (e) {
-        console.log(e);
         res.status(500).json({ message: "internal server error" });
     }
 });
@@ -34,7 +32,6 @@ router.post("/login", async (req, res) => {
             res.status(400).json({ message: "Invalid credentials" });
         }
     } catch (e) {
-        console.log(e);
         res.status(500).json({ message: "internal server error" });
     }
 });
