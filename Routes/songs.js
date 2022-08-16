@@ -27,9 +27,7 @@ router.post("/", authJWT, async (req, res) => {//i added authJWT as middleware, 
     console.log(songsList);
     if (songsList.length > 0) {
 
-        console.log(songsList.length);
-        console.log("adder", songsList[0].adder);
-        console.log(songsList);
+
         if (songsList.length == 1 && songsList[0].adder != req.body.adder) {
             songsList[0].adder.push(req.body.adder)
             songsList[0].createdBy.push(req.body.createdBy)
